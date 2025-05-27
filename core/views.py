@@ -30,28 +30,8 @@ def listar_usuarios(request):
     usuarios = Usuario.objects.all()
     return render(request, 'listar_usuarios.html', {'usuarios': usuarios}) 
 
-def editar_usuario(request, id):
-    usuario_obj = Usuario.objects.get(id=id)
-    if request.method == 'POST':
-        nome = request.POST.get('nome')
-        idade = request.POST.get('idade')
-
-        if nome and idade:
-            usuario_obj.nome = nome
-            usuario_obj.idade = idade
-            usuario_obj.save()
-            message.success(request, 'Usuário atualizado com sucesso!')
-            return render(request, 'listar_usuarios.html', {'usuarios': Usuario.objects.all()})
-        else:
-            message.error(request, 'Por favor, preencha todos os campos.')
-    
-    return render(request, 'editar_usuario.html', {'usuario': usuario_obj})
-
 def excluir_usuario(request, id):
-    usuario_obj = Usuario.objects.get(id=id)
-    if request.method == 'POST':
-        usuario_obj.delete()
-        message.success(request, 'Usuário excluído com sucesso!')
-        return render(request, 'listar_usuarios.html', {'usuarios': Usuario.objects.all()})
-    
-    return render(request, 'excluir_usuario.html', {'usuario': usuario_obj})
+    usuario = Usuario.objects.get(id=id)
+    usuario.delete()
+    message.success(request, 'Usuário excluído com sucesso!')
+    return redirect('index')
