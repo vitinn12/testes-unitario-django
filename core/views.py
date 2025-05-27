@@ -15,12 +15,11 @@ def salvar(request):
         idade = request.POST.get('idade')
 
         if nome and idade:
-            # Salva o usuário no banco de dados
             Usuario.objects.create(nome=nome, idade=idade)
-            message.success(request, 'Nome e idade salvos com sucesso!')
+            message.success(request, 'Dados salvo no banco')
             return redirect('index')
         else:
-            message.error(request, 'Por favor, preencha todos os campos.')
+            message.error(request, 'Erro de digitação')
             return render(request, 'index.html')
 
     return render(request, 'index.html')
@@ -33,5 +32,5 @@ def listar_usuarios(request):
 def excluir_usuario(request, id):
     usuario = Usuario.objects.get(id=id)
     usuario.delete()
-    message.success(request, 'Usuário excluído com sucesso!')
+    message.success(request, 'Usuário excluído')
     return redirect('index')

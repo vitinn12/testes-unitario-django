@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'index.css' %}">
-    <title>Index</title>
+    <title>Testes Unitarios</title>
 </head>
 
 <body>
@@ -29,7 +29,8 @@
             {% if usuarios %}
             <ul>
                 {% for usuario in usuarios %}
-                <li>{{ usuario.nome }} - {{ usuario.idade }} anos   
+                <li>
+                    <p><strong>Nome:</strong> {{ usuario.nome }} | <strong>Idade:</strong>  {{ usuario.idade }} anos </p>
                     <a href="{% url 'excluir_usuario' usuario.id %}">Deletar</a>
                 </li>
                 {% endfor %}
@@ -39,7 +40,7 @@
             {% endif %}
 
         </main>
-        <main>
+        <main class="formulario">
             <form action="{% url 'salvar' %}" method="post">
                 <p class="titulo">Adicionar Nome e Idade</p>
                 {% csrf_token %}

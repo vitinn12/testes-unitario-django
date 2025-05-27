@@ -1,0 +1,14 @@
+1.  __gt é um operador de comparação do Django,
+que significa "greater than"(maior que).
+
+2. O assertIn verifica se um valor está presente em 
+uma coleção (como uma lista ou um conjunto), enquanto o 
+assertNotIn verifica se um valor não está presente na coleção.
+
+3. O método setUp é chamado automaticamente pelo Django antes de cada teste.
+Ele serve para preparar o ambiente do teste, criando dados necessários
+(como usuários no banco de teste).
+
+4. _lt significa "less than" em inglês, ou seja, menor que.
+
+5. 
