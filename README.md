@@ -9,6 +9,8 @@ Serializers (em APIs) <br>
 Lógicas auxiliares (utils, serviços, etc.) <br>
 </h3>
 
+<h2>O principal propósito dos testes unitários em Django (e em qualquer aplicação) é garantir que cada parte do código funcione corretamente de forma isolada, evitando que erros passem despercebidos durante o desenvolvimento e a manutenção do sistema.</h2>
+
 
 
 
